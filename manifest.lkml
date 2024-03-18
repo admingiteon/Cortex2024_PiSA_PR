@@ -1,22 +1,26 @@
 constant: CONNECTION_NAME {
-  value: "cortex"
+  value: "cortex2023"
   export: override_required
 }
 
 constant: GCP_PROJECT {
-  value: "GCP Project ID"
+  value: "eon-internal-bigquery"
   export: override_required
 }
 
 constant: REPORTING_DATASET {
-  value: "Reporting Dataset Name"
+  value: "Cortex_REP_2023"
+ # value: "Cortex_REPORTING_2024"
   export: override_required
 }
 
 constant: CLIENT {
-  value: "Client ID"
+  value: "100"
   export: override_required
 }
+
+
+
 
 #############################
 # Additional Constants used for formatting and other logic
