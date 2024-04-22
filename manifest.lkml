@@ -4,7 +4,7 @@ constant: CONNECTION_NAME {
 }
 
 constant: GCP_PROJECT {
-  value: "eon-internal-bigquery"
+  value: "psa-sga-dfn-qa"
   export: override_required
 }
 
