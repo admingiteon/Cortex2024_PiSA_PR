@@ -1,5 +1,5 @@
 constant: CONNECTION_NAME {
-  value: "cortex2023"
+  value: "cortex_pisa_qa"
   export: override_required
 }
 
@@ -9,13 +9,13 @@ constant: GCP_PROJECT {
 }
 
 constant: REPORTING_DATASET {
-  value: "Cortex_REP_2023"
+  value: "reporting_s4h_usa"
  # value: "Cortex_REPORTING_2024"
   export: override_required
 }
 
 constant: CLIENT {
-  value: "100"
+  value: "200"
   export: override_required
 }
 
