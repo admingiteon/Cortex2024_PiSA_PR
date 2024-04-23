@@ -1,12 +1,12 @@
 - dashboard: doubtful_receivable
-  title: "[SAP OTC AR] 06_b: Doubtful Receivable"
+  title: "Accounts Receivable - Doubtful Receivables"
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
   elements:
   - title: Doubtful Receivable by Company
     name: Doubtful Receivable by Company
-    model: cortex_sap_operational
+    model: cortex_sap_operational2024
     explore: data_intelligence_ar
     type: looker_column
     fields: [data_intelligence_ar.Company_Name, doubtful_amount]
@@ -45,9 +45,9 @@
     totals_color: "#808080"
     y_axes: [{label: '', orientation: left, series: [{axisId: sum_of_doubtful_receivables_global_currency,
             id: sum_of_doubtful_receivables_global_currency, name: Sum of Doubtful
-              Receivables Global Currency}], showLabels: true, showValues: true, valueFormat: '0.00,"K"',
+              Receivables Global Currency}], showLabels: true, showValues: true, valueFormat: '',
         unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
-    label_value_format: 0.00,"K"
+    label_value_format: ''
     defaults_version: 1
     listen:
       Company: data_intelligence_ar.Company_Name
@@ -59,7 +59,7 @@
     height: 11
   - title: Total Doubtful Receivable
     name: Total Doubtful Receivable
-    model: cortex_sap_operational
+    model: cortex_sap_operational2024
     explore: data_intelligence_ar
     type: single_value
     fields: [data_intelligence_ar.Sum_Doubtful_Receivables]
@@ -89,7 +89,7 @@
     height: 11
   - title: Doubtful Receivable
     name: Doubtful Receivable
-    model: cortex_sap_operational
+    model: cortex_sap_operational2024
     explore: data_intelligence_ar
     type: looker_grid
     fields: [data_intelligence_ar.Company_Code, data_intelligence_ar.Company_Name,
@@ -172,7 +172,7 @@
       type: dropdown_menu
       display: popover
       options: []
-    model: cortex_sap_operational
+    model: cortex_sap_operational2024
     explore: data_intelligence_ar
     listens_to_filters: []
     field: data_intelligence_ar.Company_Name
@@ -186,21 +186,21 @@
       type: dropdown_menu
       display: popover
       options: []
-    model: cortex_sap_operational
+    model: cortex_sap_operational2024
     explore: data_intelligence_ar
     listens_to_filters: []
     field: data_intelligence_ar.Sold_to_Party_Name
   - name: Currency
     title: Currency
     type: field_filter
-    default_value: USD
+    default_value: "{{ _user_attributes['default_value_currency_required'] }}"
     allow_multiple_values: true
     required: false
     ui_config:
       type: dropdown_menu
       display: inline
       options: []
-    model: cortex_sap_operational
+    model: cortex_sap_operational2024
     explore: data_intelligence_ar
     listens_to_filters: []
     field: data_intelligence_ar.Currency_Required

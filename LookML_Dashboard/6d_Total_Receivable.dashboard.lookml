@@ -1,12 +1,12 @@
 - dashboard: total_receivable
-  title: "[SAP OTC AR] 06_d: Total Receivable"
+  title: "Accounts Receivable - Total Receivables"
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
   elements:
   - title: Account Receivable by Company
     name: Account Receivable by Company
-    model: cortex_sap_operational
+    model: cortex_sap_operational2024
     explore: data_intelligence_ar
     type: looker_column
     fields: [data_intelligence_ar.Company_Name, total_receivable, data_intelligence_ar.Due_Amount]
@@ -52,9 +52,9 @@
     y_axes: [{label: '', orientation: left, series: [{axisId: data_intelligence_ar.OverDue_Amount,
             id: data_intelligence_ar.OverDue_Amount, name: OverDue Amount}, {axisId: data_intelligence_ar.Due_Amount,
             id: data_intelligence_ar.Due_Amount, name: Due Amount}], showLabels: true,
-        showValues: true, valueFormat: '0,"K"', unpinAxis: false, tickDensity: default,
+        showValues: true, valueFormat: '', unpinAxis: false, tickDensity: default,
         tickDensityCustom: 5, type: linear}]
-    label_value_format: 0.00,"K"
+    label_value_format: ''
     series_colors:
       data_intelligence_ar.OverDue_Amount: "#AEC8C1"
       data_intelligence_ar.Due_Amount: "#FDEC85"
@@ -71,11 +71,11 @@
     height: 10
   - title: Accounts Receivable
     name: Accounts Receivable
-    model: cortex_sap_operational
+    model: cortex_sap_operational2024
     explore: data_intelligence_ar
     type: looker_grid
     fields: [data_intelligence_ar.Company_Code, data_intelligence_ar.Company_Name,
-      data_intelligence_ar.Fiscal_Year, data_intelligence_ar.Sold_to_Party_Name, data_intelligence_ar.Accounting_Document,
+      data_intelligence_ar.PeriodCalc, data_intelligence_ar.Sold_to_Party_Name, data_intelligence_ar.Accounting_Document,
       data_intelligence_ar.Posting_date, data_intelligence_ar.Local_Currency_Key,
       data_intelligence_ar.Accounts_Receivable_Local_Currency, data_intelligence_ar.Global_Currency_Key,
       data_intelligence_ar.Accounts_Receivable_Global_Currency]
@@ -109,7 +109,7 @@
     height: 10
   - title: Total Receivable
     name: Total Receivable
-    model: cortex_sap_operational
+    model: cortex_sap_operational2024
     explore: data_intelligence_ar
     type: single_value
     fields: [data_intelligence_ar.Sum_of_Receivables]
@@ -154,7 +154,7 @@
       type: dropdown_menu
       display: inline
       options: []
-    model: cortex_sap_operational
+    model: cortex_sap_operational2024
     explore: data_intelligence_ar
     listens_to_filters: []
     field: data_intelligence_ar.Company_Name
@@ -168,21 +168,21 @@
       type: dropdown_menu
       display: inline
       options: []
-    model: cortex_sap_operational
+    model: cortex_sap_operational2024
     explore: data_intelligence_ar
     listens_to_filters: []
     field: data_intelligence_ar.Sold_to_Party_Name
   - name: Currency
     title: Currency
     type: field_filter
-    default_value: USD
+    default_value: "{{ _user_attributes['default_value_currency_required'] }}"
     allow_multiple_values: true
     required: false
     ui_config:
       type: dropdown_menu
       display: inline
       options: []
-    model: cortex_sap_operational
+    model: cortex_sap_operational2024
     explore: data_intelligence_ar
     listens_to_filters: []
     field: data_intelligence_ar.Currency_Required

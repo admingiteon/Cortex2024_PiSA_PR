@@ -1,12 +1,12 @@
 - dashboard: overdue_receivables
-  title: "[SAP OTC AR] 06_c: Overdue Receivables"
+  title: "Accounts Receivable - Overdue Receivables"
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
   elements:
   - title: Overdue Receivable by Company
     name: Overdue Receivable by Company
-    model: cortex_sap_operational
+    model: cortex_sap_operational2024
     explore: data_intelligence_ar
     type: looker_column
     fields: [data_intelligence_ar.Company_Name, data_intelligence_ar.Over_Due_Amount]
@@ -50,10 +50,10 @@
         steps: 5
     y_axes: [{label: Overdue Amount, orientation: left, series: [{axisId: data_intelligence_ar.Over_Due_Amount,
             id: data_intelligence_ar.Over_Due_Amount, name: Over Due Amount}], showLabels: true,
-        showValues: true, valueFormat: '0,"K"', unpinAxis: false, tickDensity: default,
+        showValues: true, valueFormat: '', unpinAxis: false, tickDensity: default,
         tickDensityCustom: 5, type: linear}]
     x_axis_label: Company
-    label_value_format: 0.00,"K"
+    label_value_format: ''
     series_colors:
       data_intelligence_ar.Over_Due_Amount: "#ACE9F5"
     show_dropoff: false
@@ -77,7 +77,7 @@
     height: 2
   - title: Total Overdue Receivable
     name: Total Overdue Receivable
-    model: cortex_sap_operational
+    model: cortex_sap_operational2024
     explore: data_intelligence_ar
     type: single_value
     fields: [data_intelligence_ar.OverDue_Amount]
@@ -107,7 +107,7 @@
     height: 10
   - title: Overdue Receivable
     name: Overdue Receivable
-    model: cortex_sap_operational
+    model: cortex_sap_operational2024
     explore: data_intelligence_ar
     type: looker_grid
     fields: [data_intelligence_ar.Company_Code, data_intelligence_ar.Company_Name,
@@ -179,7 +179,7 @@
       type: dropdown_menu
       display: popover
       options: []
-    model: cortex_sap_operational
+    model: cortex_sap_operational2024
     explore: data_intelligence_ar
     listens_to_filters: []
     field: data_intelligence_ar.Company_Name
@@ -193,21 +193,21 @@
       type: tag_list
       display: popover
       options: []
-    model: cortex_sap_operational
+    model: cortex_sap_operational2024
     explore: data_intelligence_ar
     listens_to_filters: []
     field: data_intelligence_ar.Sold_to_Party_Name
   - name: Currency
     title: Currency
     type: field_filter
-    default_value: USD
+    default_value: "{{ _user_attributes['default_value_currency_required'] }}"
     allow_multiple_values: true
     required: false
     ui_config:
       type: dropdown_menu
       display: inline
       options: []
-    model: cortex_sap_operational
+    model: cortex_sap_operational2024
     explore: data_intelligence_ar
     listens_to_filters: []
     field: data_intelligence_ar.Currency_Required
