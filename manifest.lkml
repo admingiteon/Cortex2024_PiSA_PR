@@ -1,10 +1,10 @@
 constant: CONNECTION_NAME {
-  value: "cortex_pisa_qa"
+  value: "cortex_pisa_pr"
   export: override_required
 }
 
 constant: GCP_PROJECT {
-  value: "psa-sga-dfn-qa"
+  value: "psa-sga-dfn-pr"
   export: override_required
 }
 
